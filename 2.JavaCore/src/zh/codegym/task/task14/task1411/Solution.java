@@ -12,18 +12,43 @@ public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Person person = null;
-        String key = null;
+        String key;
+        while (true) {
+            key = reader.readLine();
+            boolean u = key.equals("user") || key.equals("loser") || key.equals("coder") || key.equals("programmer");
+            if (!u) break;
 
-        // 这是读取键的循环。项目 1
-        {
-            // 创建一个对象。项目 2
-
-            doWork(person); // 调用 doWork
-
+            switch (key) {
+                case "user":
+                    person = new Person.User();
+                    break;
+                case "loser":
+                    person = new Person.Loser();
+                    break;
+                case "coder":
+                    person = new Person.Coder();
+                    break;
+                case "programmer":
+                    person = new Person.Programmer();
+                    break;
+            }
+            doWork(person);
         }
     }
 
     public static void doWork(Person person) {
-        // 项目 3
+        if (person instanceof Person.User) {
+            Person.User user = (Person.User) person;
+            user.live();
+        } else if (person instanceof Person.Loser) {
+            Person.Loser loser = (Person.Loser) person;
+            loser.doNothing();
+        } else if (person instanceof Person.Coder) {
+            Person.Coder coder = (Person.Coder) person;
+            coder.writeCode();
+        } else if (person instanceof Person.Programmer) {
+            Person.Programmer programmer = (Person.Programmer) person;
+            programmer.enjoy();
+        }
     }
 }
