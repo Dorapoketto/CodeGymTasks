@@ -6,6 +6,7 @@ package zh.codegym.task.task15.task1524;
 
 public class Solution {
     static {
+        init();
         System.out.println("Static 块");
     }
 
@@ -17,9 +18,6 @@ public class Solution {
     public int i = 6;
 
     public String name = "姓氏";
-    static {
-        init();
-    }
 
     public Solution() {
         System.out.println("Solution 构造方法");
@@ -37,7 +35,8 @@ public class Solution {
 
     public static void printAllFields(Solution obj) {
         System.out.println("static void printAllFields");
-        System.out.println(obj.name);
         System.out.println(obj.i);
+        System.out.println(obj.name);
+
     }
 }
