@@ -40,6 +40,9 @@ public class Solution {
 
         public void printCountdown() throws InterruptedException {
             //在此编写你的代码
+            System.out.println(list.get(--countFrom));
+            Thread.sleep(500);
+
         }
     }
 }
